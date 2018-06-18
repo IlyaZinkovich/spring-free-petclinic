@@ -1,4 +1,4 @@
-package io.github.ilyazinkovich.petclinic.domain.event;
+package io.github.ilyazinkovich.petclinic.domain;
 
 import java.util.List;
 import java.util.function.Consumer;

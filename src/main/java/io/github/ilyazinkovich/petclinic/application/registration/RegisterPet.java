@@ -1,10 +1,11 @@
-package io.github.ilyazinkovich.petclinic.application;
+package io.github.ilyazinkovich.petclinic.application.registration;
 
+import io.github.ilyazinkovich.petclinic.application.Command;
 import io.github.ilyazinkovich.petclinic.domain.Kind;
 import io.github.ilyazinkovich.petclinic.domain.PetOwner.PetOwnerId;
 import java.time.LocalDate;
 
-public class RegisterPet {
+public class RegisterPet implements Command {
 
   final Kind kind;
   final LocalDate dateOfBirth;

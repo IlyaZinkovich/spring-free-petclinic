@@ -1,6 +1,7 @@
 package io.github.ilyazinkovich.petclinic.domain;
 
 import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
+import java.util.Optional;
 
 public interface PetRepository {
 
@@ -8,5 +9,5 @@ public interface PetRepository {
 
   void persist(final Pet pet);
 
-  Pet query(final PetId petId);
+  Optional<Pet> query(final PetId petId);
 }

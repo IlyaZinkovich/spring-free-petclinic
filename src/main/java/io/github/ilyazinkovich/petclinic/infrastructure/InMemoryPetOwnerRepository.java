@@ -5,6 +5,7 @@ import io.github.ilyazinkovich.petclinic.domain.PetOwner.PetOwnerId;
 import io.github.ilyazinkovich.petclinic.domain.PetOwnerRepository;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 public class InMemoryPetOwnerRepository implements PetOwnerRepository {
 
@@ -17,5 +18,16 @@ public class InMemoryPetOwnerRepository implements PetOwnerRepository {
   @Override
   public Optional<PetOwner> query(final PetOwnerId petOwnerId) {
     return Optional.ofNullable(petOwners.get(petOwnerId));
+  }
+
+  @Override
+  public PetOwnerId nextIdentity() {
+    final String uid = UUID.randomUUID().toString();
+    return new PetOwnerId(uid);
+  }
+
+  @Override
+  public void persist(final PetOwner petOwner) {
+    petOwners.put(petOwner.id, petOwner);
   }
 }

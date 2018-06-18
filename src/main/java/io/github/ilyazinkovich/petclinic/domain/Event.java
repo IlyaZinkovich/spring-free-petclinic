@@ -1,9 +1,8 @@
-package io.github.ilyazinkovich.petclinic.domain.event;
+package io.github.ilyazinkovich.petclinic.domain;
 
 import java.time.Instant;
 
 public interface Event {
 
-  long version();
   Instant timestamp();
 }

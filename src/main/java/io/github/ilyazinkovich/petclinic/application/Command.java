@@ -1,5 +1,5 @@
 package io.github.ilyazinkovich.petclinic.application;
 
-public class RegisterPetOwner {
+public interface Command {
 
 }
