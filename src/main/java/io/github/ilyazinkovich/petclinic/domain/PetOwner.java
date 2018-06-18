@@ -1,5 +1,7 @@
 package io.github.ilyazinkovich.petclinic.domain;
 
+import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class PetOwner {
@@ -10,6 +12,10 @@ public class PetOwner {
   public PetOwner(final PetOwnerId id, final String name) {
     this.id = id;
     this.name = name;
+  }
+
+  public Pet bringPet(final PetId petId, final Kind kind, final LocalDate dateOfBirth) {
+    return new Pet(petId, kind, dateOfBirth, id);
   }
 
   @Override

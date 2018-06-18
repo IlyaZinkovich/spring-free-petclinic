@@ -3,13 +3,13 @@ package io.github.ilyazinkovich.petclinic.application.registration;
 import static java.time.Instant.now;
 
 import io.github.ilyazinkovich.petclinic.application.Command;
+import io.github.ilyazinkovich.petclinic.domain.EventLog;
 import io.github.ilyazinkovich.petclinic.domain.Pet;
 import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
 import io.github.ilyazinkovich.petclinic.domain.PetOwner;
 import io.github.ilyazinkovich.petclinic.domain.PetOwner.PetOwnerId;
 import io.github.ilyazinkovich.petclinic.domain.PetOwnerRepository;
 import io.github.ilyazinkovich.petclinic.domain.PetRepository;
-import io.github.ilyazinkovich.petclinic.domain.EventLog;
 
 public class RegistrationService {
 
@@ -42,8 +42,7 @@ public class RegistrationService {
   private void handle(final RegisterPet registerPet) {
     petOwnerRepository.query(registerPet.petOwnerId).ifPresent(petOwner -> {
       final PetId petId = petRepository.nextIdentity();
-      final Pet pet = new Pet(petId, registerPet.kind,
-          registerPet.dateOfBirth, registerPet.petOwnerId);
+      final Pet pet = petOwner.bringPet(petId, registerPet.kind, registerPet.dateOfBirth);
       petRepository.persist(pet);
       eventLog.publish(new PetRegistered(petId, now()));
     });
