@@ -1,4 +1,4 @@
-package io.github.ilyazinkovich.petclinic;
+package io.github.ilyazinkovich.petclinic.application.registration;
 
 import static java.lang.String.format;
 import static java.time.Instant.now;
@@ -6,11 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.ilyazinkovich.petclinic.application.registration.PetOwnerRegistered;
-import io.github.ilyazinkovich.petclinic.application.registration.PetRegistered;
-import io.github.ilyazinkovich.petclinic.application.registration.RegisterPet;
-import io.github.ilyazinkovich.petclinic.application.registration.RegisterPetOwner;
-import io.github.ilyazinkovich.petclinic.application.registration.RegistrationService;
+import io.github.ilyazinkovich.petclinic.domain.Event;
+import io.github.ilyazinkovich.petclinic.domain.EventLog;
 import io.github.ilyazinkovich.petclinic.domain.Kind;
 import io.github.ilyazinkovich.petclinic.domain.Pet;
 import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
@@ -18,8 +15,6 @@ import io.github.ilyazinkovich.petclinic.domain.PetOwner;
 import io.github.ilyazinkovich.petclinic.domain.PetOwner.PetOwnerId;
 import io.github.ilyazinkovich.petclinic.domain.PetOwnerRepository;
 import io.github.ilyazinkovich.petclinic.domain.PetRepository;
-import io.github.ilyazinkovich.petclinic.domain.Event;
-import io.github.ilyazinkovich.petclinic.domain.EventLog;
 import io.github.ilyazinkovich.petclinic.infrastructure.InMemoryPetOwnerRepository;
 import io.github.ilyazinkovich.petclinic.infrastructure.InMemoryPetRepository;
 import java.time.LocalDate;
@@ -30,7 +25,7 @@ import java.util.function.Consumer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class LightweightIntegrationTest {
+class RegistrationServiceTest {
 
   private RegistrationService registrationService;
   private EventLog eventLog;
