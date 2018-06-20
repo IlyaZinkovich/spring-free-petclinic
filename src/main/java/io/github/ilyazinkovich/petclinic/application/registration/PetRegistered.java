@@ -1,12 +1,12 @@
 package io.github.ilyazinkovich.petclinic.application.registration;
 
-import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
 import io.github.ilyazinkovich.petclinic.domain.Event;
+import io.github.ilyazinkovich.petclinic.domain.Pet.PetId;
 import java.time.Instant;
 
 public class PetRegistered implements Event {
 
-  private final PetId petId;
+  final PetId petId;
   private final Instant timestamp;
 
   public PetRegistered(final PetId petId, final Instant timestamp) {
@@ -17,9 +17,5 @@ public class PetRegistered implements Event {
   @Override
   public Instant timestamp() {
     return timestamp;
-  }
-
-  public PetId petId() {
-    return petId;
   }
 }

@@ -1,16 +1,16 @@
 package io.github.ilyazinkovich.petclinic.application.registration;
 
 import io.github.ilyazinkovich.petclinic.domain.Event;
-import io.github.ilyazinkovich.petclinic.domain.PetOwner.PetOwnerId;
+import io.github.ilyazinkovich.petclinic.domain.Vet.VetId;
 import java.time.Instant;
 
-public class PetOwnerRegistered implements Event {
+public class VetRegistered implements Event {
 
-  final PetOwnerId petOwnerId;
+  final VetId vetId;
   private final Instant timestamp;
 
-  public PetOwnerRegistered(final PetOwnerId petOwnerId, final Instant timestamp) {
-    this.petOwnerId = petOwnerId;
+  public VetRegistered(final VetId vetId, final Instant timestamp) {
+    this.vetId = vetId;
     this.timestamp = timestamp;
   }
 

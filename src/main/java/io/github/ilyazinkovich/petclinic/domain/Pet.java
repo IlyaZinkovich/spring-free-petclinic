@@ -7,11 +7,11 @@ import java.util.Objects;
 public class Pet {
 
   public final PetId id;
-  private final Kind kind;
+  private final AnimalKind kind;
   private final LocalDate dateOfBirth;
   private final PetOwnerId petOwnerId;
 
-  public Pet(final PetId id, final Kind kind, final LocalDate dateOfBirth,
+  public Pet(final PetId id, final AnimalKind kind, final LocalDate dateOfBirth,
       final PetOwnerId petOwnerId) {
     this.id = id;
     this.kind = kind;
