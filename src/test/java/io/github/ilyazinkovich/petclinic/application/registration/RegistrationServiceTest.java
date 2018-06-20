@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 
 class RegistrationServiceTest {
 
-  private RegistrationService registrationService;
+  private Registration registrationService;
   private EventLog eventLog;
   private PetOwnerRepository petOwnerRepository;
   private PetRepository petRepository;
@@ -40,7 +40,7 @@ class RegistrationServiceTest {
     petRepository = new InMemoryPetRepository(pets);
     final List<Consumer<Event>> subscribers = new ArrayList<>();
     eventLog = new EventLog(subscribers);
-    registrationService = new RegistrationService(petOwnerRepository, petRepository, eventLog);
+    registrationService = new Registration(petOwnerRepository, petRepository, eventLog);
   }
 
   @Test

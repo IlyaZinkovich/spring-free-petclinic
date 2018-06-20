@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 public class RegisterPet implements Command {
 
+  public static final String REGISTER_PET = "registerPet";
+
   final Kind kind;
   final LocalDate dateOfBirth;
   final PetOwnerId petOwnerId;
@@ -16,5 +18,10 @@ public class RegisterPet implements Command {
     this.kind = kind;
     this.dateOfBirth = dateOfBirth;
     this.petOwnerId = petOwnerId;
+  }
+
+  @Override
+  public String commandName() {
+    return REGISTER_PET;
   }
 }
