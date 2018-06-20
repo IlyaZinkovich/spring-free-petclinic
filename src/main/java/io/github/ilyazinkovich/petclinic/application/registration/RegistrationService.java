@@ -42,7 +42,7 @@ public class RegistrationService {
   private void handle(final RegisterPet registerPet) {
     petOwnerRepository.query(registerPet.petOwnerId).ifPresent(petOwner -> {
       final PetId petId = petRepository.nextIdentity();
-      final Pet pet = petOwner.bringPet(petId, registerPet.kind, registerPet.dateOfBirth);
+      final Pet pet = petOwner.bringNewPet(petId, registerPet.kind, registerPet.dateOfBirth);
       petRepository.persist(pet);
       eventLog.publish(new PetRegistered(petId, now()));
     });

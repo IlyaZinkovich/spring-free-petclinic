@@ -14,7 +14,7 @@ public class PetOwner {
     this.name = name;
   }
 
-  public Pet bringPet(final PetId petId, final Kind kind, final LocalDate dateOfBirth) {
+  public Pet bringNewPet(final PetId petId, final Kind kind, final LocalDate dateOfBirth) {
     return new Pet(petId, kind, dateOfBirth, id);
   }
 
