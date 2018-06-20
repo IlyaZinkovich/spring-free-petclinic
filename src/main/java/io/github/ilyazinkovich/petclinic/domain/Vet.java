@@ -15,6 +15,23 @@ public class Vet {
     this.specialisations = specialisations;
   }
 
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    final Vet vet = (Vet) o;
+    return Objects.equals(id, vet.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, specialisations);
+  }
+
   public static class VetId {
 
     final String uid;
@@ -24,14 +41,14 @@ public class Vet {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
       if (this == o) {
         return true;
       }
       if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      VetId that = (VetId) o;
+      final VetId that = (VetId) o;
       return Objects.equals(uid, that.uid);
     }
 
