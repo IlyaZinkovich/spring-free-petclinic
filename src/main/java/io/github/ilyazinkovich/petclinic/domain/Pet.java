@@ -40,6 +40,10 @@ public class Pet {
     return Objects.hash(id);
   }
 
+  public boolean belongsTo(final PetOwnerId petOwnerId) {
+    return this.petOwnerId.equals(petOwnerId);
+  }
+
   public static class PetId {
 
     final String uid;

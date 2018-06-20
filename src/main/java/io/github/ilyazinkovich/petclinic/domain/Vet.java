@@ -32,6 +32,10 @@ public class Vet {
     return Objects.hash(id, name, specialisations);
   }
 
+  public boolean canHeal(final AnimalKind kind) {
+    return specialisations.stream().anyMatch(specialisation -> specialisation.equals(kind));
+  }
+
   public static class VetId {
 
     final String uid;
